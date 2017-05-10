@@ -50,7 +50,6 @@ cp -a ~/dotfiles/bin/. ~/bin
 
 ### ZSH
 sudo apt install -y zsh
-zsh
 
 ### PREZTO
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
