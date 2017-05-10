@@ -1,14 +1,5 @@
 sudo apt install -y git chromium-browser
 
-### DOTFILES
-cd
-git clone https://github.com/rentziass/dotfiles.git dotfiles
-wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
-echo "deb http://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list
-sudo apt update
-sudo apt install rcm
-env RCRC=$HOME/dotfiles/rcrc rcup
-
 ### VIM (with lua support)
 # Remove previous installations
 sudo apt-get remove vim vim-runtime vim-tiny vim-common
@@ -43,10 +34,25 @@ make VIMRUNTIMEDIR=/usr/share/vim/vim74
 sudo apt-get install checkinstall
 sudo checkinstall
 
-# Vundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+# Silver Searcher
+sudo apt install -y silversearcher-ag
+
+### DOTFILES
+cd
+git clone https://github.com/rentziass/dotfiles.git dotfiles
+wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
+echo "deb http://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list
+sudo apt update
+sudo apt install rcm
+env RCRC=$HOME/dotfiles/rcrc rcup
+touch ~/.env
 
 ### ZSH
 sudo apt install -y zsh
 chsh -s $(which zsh)
+zsh
+
+### PREZTO
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+
+
