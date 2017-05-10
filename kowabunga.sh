@@ -103,5 +103,13 @@ mv hub-linux-amd64-2.3.0-pre9/bin/hub ~/bin/hub
 rm -rf hub-linux-amd64-2.3.0-pre9
 rm -f hub-linux-amd64-2.3.0-pre9.tgz
 
+### FONTS
+cd
+git clone https://github.com/powerline/fonts.git
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
+
 ### ZSH AS DEFAULT
 chsh -s $(which zsh)
