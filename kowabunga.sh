@@ -77,3 +77,20 @@ sudo apt-get install spotify-client
 ### RUBY & RVM
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 \curl -L https://get.rvm.io | bash -s stable --ruby
+
+### Create working dirs
+cd
+mkdir go
+mkdir work
+mkdir fun
+mkdir sandbox
+
+### Golang
+sudo apt install -y golang
+
+# Secure store for git passwords
+sudo apt install -y libgnome-keyring-dev
+cd /usr/share/doc/git/contrib/credential/gnome-keyring
+sudo make
+git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+cd
