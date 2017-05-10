@@ -110,6 +110,3 @@ cd fonts
 ./install.sh
 cd ..
 rm -rf fonts
-
-### ZSH AS DEFAULT
-chsh -s $(which zsh)
