@@ -29,7 +29,7 @@ cd vim
     --with-features=huge      \
     --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu
 
-make VIMRUNTIMEDIR=/usr/share/vim/vim74
+make VIMRUNTIMEDIR=/usr/share/vim/vim80
 
 sudo apt-get install checkinstall
 sudo checkinstall
@@ -54,5 +54,24 @@ zsh
 
 ### PREZTO
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+# Removing super annoying git alias from prezto
+sed -i "/alias g='git'/d" ~/.zprezto/modules/git/alias.zsh
 
+### SOLARIZED TERMINAL, 'coz we all love it right?
+cd
+wget --no-check-certificate https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark
+mv dircolors.ansi-dark .dircolors
+eval `dircolors ~/.dircolors`
 
+sudo apt-get install git-core
+git clone https://github.com/sigurdga/gnome-terminal-colors-solarized.git
+cd gnome-terminal-colors-solarized
+./set_dark.sh
+
+### SPOTIFY
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt-get update
+sudo apt-get install spotify-client
+
+### RUBY & RVM
