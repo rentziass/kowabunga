@@ -46,6 +46,7 @@ sudo apt update
 sudo apt install rcm
 env RCRC=$HOME/dotfiles/rcrc rcup
 touch ~/.env
+cp -a ~/dotfiles/bin/. ~/bin
 
 ### ZSH
 sudo apt install -y zsh
@@ -87,6 +88,7 @@ mkdir sandbox
 
 ### Golang
 sudo apt install -y golang
+vim +GoInstallBinaries +qall
 
 # Secure store for git passwords
 sudo apt install -y libgnome-keyring-dev
@@ -94,3 +96,11 @@ cd /usr/share/doc/git/contrib/credential/gnome-keyring
 sudo make
 git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 cd
+
+### Hub
+cd
+wget https://github.com/github/hub/releases/download/v2.3.0-pre9/hub-linux-amd64-2.3.0-pre9.tgz
+tar x -f  hub-linux-amd64-2.3.0-pre9.tgz
+mv hub-linux-amd64-2.3.0-pre9/bin/hub ~/bin/hub
+rm -rf hub-linux-amd64-2.3.0-pre9
+rm -f hub-linux-amd64-2.3.0-pre9.tgz
