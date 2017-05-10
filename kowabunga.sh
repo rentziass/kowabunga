@@ -50,7 +50,6 @@ cp -a ~/dotfiles/bin/. ~/bin
 
 ### ZSH
 sudo apt install -y zsh
-chsh -s $(which zsh)
 zsh
 
 ### PREZTO
@@ -104,3 +103,6 @@ tar x -f  hub-linux-amd64-2.3.0-pre9.tgz
 mv hub-linux-amd64-2.3.0-pre9/bin/hub ~/bin/hub
 rm -rf hub-linux-amd64-2.3.0-pre9
 rm -f hub-linux-amd64-2.3.0-pre9.tgz
+
+### ZSH AS DEFAULT
+chsh -s $(which zsh)
